@@ -5,22 +5,35 @@ return {
     config = function()
       require("nvim-treesitter.configs").setup {
         ensure_installed = { "tsx", "typescript", "javascript", "jsx" },
-        highlight = { enable = true },
-        context_commentstring = {
-          enable = true,
-          enable_autocmd = false,
-          config = {
-            tsx = {
-              __default = '// %s',
-              jsx_element = '{/* %s */}',
-              jsx_fragment = '{/* %s */}',
-              jsx_attribute = '// %s',
-              comment = '// %s',
-            },
-            typescript = { __default = '// %s', __multiline = '/* %s */' },
-            javascript = { __default = '// %s' },
+        -- context_commentstring = {
+        --   enable = true,
+        --   enable_autocmd = false,
+        --   config = {
+        --     tsx = {
+        --       __default = '// %s',
+        --       jsx_element = '{/* %s */}',
+        --       jsx_fragment = '{/* %s */}',
+        --       jsx_attribute = '// %s',
+        --       comment = '// %s',
+        --     },
+        --     typescript = { __default = '// %s', __multiline = '/* %s */' },
+        --     javascript = { __default = '// %s' },
+        --   },
+        -- },
+      }
+      require("ts_context_commentstring").setup {
+        enable_autocmd = false,
+        languages = {
+          tsx = {
+            __default = '// %s',
+            jsx_element = '{/* %s */}',
+            jsx_fragment = '{/* %s */}',
+            jsx_attribute = '// %s',
+            comment = '// %s',
           },
-        },
+          typescript = { __default = '// %s', __multiline = '/* %s */' },
+          javascript = { __default = '// %s' },
+        }
       }
     end,
   },

@@ -5,24 +5,24 @@ return {
     config = function()
       require 'nvim-treesitter.configs'.setup {
         -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "tsx", "typescript", "javascript", "jsx" },
         sync_install = false,
         auto_install = false,
-        context_commentstring = {
-          enable = true,
-          enable_autocmd = false,
-          config = {
-            tsx = {
-              __default = '// %s',
-              jsx_element = '{/* %s */}',
-              jsx_fragment = '{/* %s */}',
-              jsx_attribute = '// %s',
-              comment = '// %s',
-            },
-            typescript = { __default = '// %s', __multiline = '/* %s */' },
-            javascript = { __default = '// %s' },
-          },
-        },
+        -- context_commentstring = {
+        --   enable = true,
+        --   enable_autocmd = false,
+        --   config = {
+        --     tsx = {
+        --       __default = '// %s',
+        --       jsx_element = '{/* %s */}',
+        --       jsx_fragment = '{/* %s */}',
+        --       jsx_attribute = '// %s',
+        --       comment = '// %s',
+        --     },
+        --     typescript = { __default = '// %s', __multiline = '/* %s */' },
+        --     javascript = { __default = '// %s' },
+        --   },
+        -- },
         highlight = {
           enable = true,
 
