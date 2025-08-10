@@ -17,7 +17,7 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     config = function()
       require("mason-tool-installer").setup({
-        ensure_installed = { "eslint_d", "prettierd" },
+        ensure_installed = { "eslint_d", "prettierd", "lua_ls", "ts_ls", "astro", "gopls" },
       })
     end,
   },
