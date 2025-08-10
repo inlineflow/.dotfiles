@@ -4,7 +4,7 @@ return {
     "JoosepAlviste/nvim-ts-context-commentstring",
     config = function()
       require("nvim-treesitter.configs").setup {
-        ensure_installed = { "tsx", "typescript", "javascript", "jsx" },
+        ensure_installed = { "tsx", "typescript", "javascript" },
         -- context_commentstring = {
         --   enable = true,
         --   enable_autocmd = false,
