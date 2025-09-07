@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-cd ~
+# cd ~
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -127,6 +127,6 @@ alias v="nvim"
 export FLYCTL_INSTALL="/home/inlineflow/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then 
-    tmux attach-session -t default || tmux new-session -s default 
-fi
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then 
+#     tmux attach-session -t default || tmux new-session -s default 
+# fi
