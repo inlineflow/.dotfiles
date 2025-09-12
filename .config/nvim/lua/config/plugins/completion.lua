@@ -1,7 +1,8 @@
 return {
   {
     'saghen/blink.cmp',
-    dependencies = { 'rafamadriz/friendly-snippets' },
+    -- dependencies = { 'rafamadriz/friendly-snippets', "L3MON4D3/LuaSnip" },
+    dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
 
     version = '1.*',
 
@@ -9,6 +10,7 @@ return {
     ---@type blink.cmp.Config
     opts = {
       keymap = { preset = 'default' },
+      snippets = { preset = "luasnip" },
 
       appearance = {
         nerd_font_variant = 'mono'

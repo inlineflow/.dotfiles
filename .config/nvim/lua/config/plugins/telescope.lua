@@ -6,10 +6,10 @@ return {
   -- or                              , branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
-    },
+    -- {
+    --   'nvim-telescope/telescope-fzf-native.nvim',
+    --   -- build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
+    -- },
   },
   config = function()
     require('telescope').setup {
@@ -18,12 +18,12 @@ return {
           theme = "ivy"
         }
       },
-      extensions = {
-        fzf = {}
-      }
+      -- extensions = {
+      --   fzf = {}
+      -- }
     }
 
-    require('telescope').load_extension('fzf')
+    -- require('telescope').load_extension('fzf')
 
     local builtin = require('telescope.builtin')
     vim.keymap.set("n", "<space>fh", builtin.help_tags)
