@@ -11,3 +11,4 @@ flatpak install flathub org.telegram.desktop -y
 ### Handmade stuff
 sudo dnf install SDL2-devel -y
 sudn dnf install bear -y
+sudo dnf install clang -y
