@@ -130,3 +130,6 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then 
 #     tmux attach-session -t default || tmux new-session -s default 
 # fi
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
