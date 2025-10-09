@@ -19,6 +19,38 @@ local ts_server = function()
   })
 end
 
+local templ = function()
+  local lspconfig = require("lspconfig")
+  local capabilities = require("blink.cmp").get_lsp_capabilities()
+  lspconfig.html.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "html", "templ" },
+  })
+
+  lspconfig.htmx.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "html", "templ" },
+  })
+end
+
+local templ_tailwindcss = function()
+  local lspconfig = require("lspconfig")
+  local capabilities = require("blink.cmp").get_lsp_capabilities()
+  lspconfig.tailwindcss.setup({
+    capabilities = capabilities,
+    filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+    settings = {
+      tailwindCSS = {
+        includeLanguages = {
+          templ = "hmtl",
+        }
+      }
+    }
+  });
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -38,6 +70,8 @@ return {
     config = function()
       lua_ls()
       ts_server()
+      -- templ()
+      templ_tailwindcss()
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
