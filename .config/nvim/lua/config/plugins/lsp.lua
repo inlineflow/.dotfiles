@@ -22,17 +22,22 @@ end
 local templ = function()
   local lspconfig = require("lspconfig")
   local capabilities = require("blink.cmp").get_lsp_capabilities()
-  lspconfig.html.setup({
-    -- on_attach = on_attach,
+
+  lspconfig.templ.setup({
     capabilities = capabilities,
-    filetypes = { "html", "templ" },
   })
 
-  lspconfig.htmx.setup({
-    -- on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "html", "templ" },
-  })
+  -- lspconfig.html.setup({
+  --   -- on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   filetypes = { "html", "templ" },
+  -- })
+  --
+  -- lspconfig.htmx.setup({
+  --   -- on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   filetypes = { "html", "templ" },
+  -- })
 end
 
 local templ_tailwindcss = function()
@@ -44,7 +49,7 @@ local templ_tailwindcss = function()
     settings = {
       tailwindCSS = {
         includeLanguages = {
-          templ = "hmtl",
+          templ = "html",
         }
       }
     }
@@ -71,7 +76,7 @@ return {
       lua_ls()
       ts_server()
       -- templ()
-      templ_tailwindcss()
+      -- templ_tailwindcss()
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
