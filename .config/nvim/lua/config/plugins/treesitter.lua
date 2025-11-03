@@ -3,9 +3,20 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      require 'nvim-treesitter.configs'.setup {
+      require("nvim-treesitter.configs").setup({
         -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "tsx", "typescript", "javascript" },
+        ensure_installed = {
+          "c",
+          "lua",
+          "vim",
+          "vimdoc",
+          "query",
+          "markdown",
+          "markdown_inline",
+          "tsx",
+          "typescript",
+          "javascript",
+        },
         sync_install = false,
         auto_install = false,
         -- context_commentstring = {
@@ -36,7 +47,13 @@ return {
           end,
           additional_vim_regex_highlighting = true,
         },
-      }
-    end
-  }
+      })
+    end,
+  },
+  {
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
+    enabled = vim.fn.has("nvim-0.10.0") == 1,
+  },
 }
