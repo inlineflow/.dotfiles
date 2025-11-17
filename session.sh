@@ -30,3 +30,5 @@ tmux new-window -t "$session_name" -n "term"
 tmux new-window -t "$session_name" -n "git" 
 
 tmux attach-session -t "$session_name"
+tmux select-pane -t 0
+tmux send-keys -t "$session_name":0.0 "nvim ." C-m
