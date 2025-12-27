@@ -215,7 +215,7 @@ return {
         --
         --  Feel free to add/remove any LSPs here that you want to install via Mason. They will automatically be installed and setup.
         mason = {
-          clangd = {},
+          -- clangd = {},
           gopls = {},
           html = {},
           -- pyright = {},
