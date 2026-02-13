@@ -127,6 +127,7 @@ alias v="nvim"
 export FLYCTL_INSTALL="/home/inlineflow/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export PATH="$HOME/thirdparty/gf:$PATH"
+export PATH="$HOME/thirdparty/odin:$PATH"
 
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then 
 #     tmux attach-session -t default || tmux new-session -s default 

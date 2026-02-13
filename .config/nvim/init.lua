@@ -59,6 +59,43 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+local function run_build_script()
+  local git_dir = vim.fs.dirname(vim.fs.find(".git", { upward = true })[1])
+  local build_script = git_dir .. "/build.sh"
+  if vim.fn.filereadable(build_script) ~= 0 then
+    vim.system({ "./build.sh" }, { cwd = git_dir, text = true }, function(obj)
+      print(obj.code)
+      print(obj.signal)
+      if obj.stderr ~= "" then
+        print("build failed")
+        print(obj.stderr)
+        return
+      end
+      print(obj.stdout)
+    end)
+    -- local job_id = vim.fn.jobstart({ "/bin/bash", build_script }, {
+    --   on_stdout = function(job_id, data, event)
+    --     if data then
+    --       print("STDOUT: " .. table.concat(data, "\n"))
+    --     end
+    --   end,
+    --   on_stderr = function(job_id, data, event)
+    --     if data ~= {} then
+    --       print("STDERR: " .. table.concat(data, "\n"))
+    --     end
+    --   end,
+    --   -- on_exit = function(job_id, code, event)
+    --   --   print("Build script with job_id [" .. job_id .. "] finished with exit code: " .. code)
+    --   -- end,
+    -- })
+  else
+    vim.notify("no build.sh found at the root directory of the project")
+  end
+  print(build_script)
+end
+
+vim.keymap.set("n", "<leader>b", run_build_script, { desc = "Run build script" })
+
 require("config.lazy")
 -- require("config.custom.quickfix").setup()
 require("config.git.push").setup()
