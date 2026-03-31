@@ -122,7 +122,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias ls="ls -a"
+alias ls="ls -la"
 alias v="nvim"
 export FLYCTL_INSTALL="/home/inlineflow/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
@@ -135,3 +135,7 @@ export PATH="$HOME/thirdparty/odin:$PATH"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# Turso
+export PATH="$PATH:/home/inlineflow/.turso"
+export PKG_CONFIG_PATH="/home/inlineflow/code/zvezda/pkgconfig"
